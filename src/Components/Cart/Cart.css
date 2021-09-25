@@ -1,0 +1,26 @@
+.cart{
+    text-align: center;
+}
+.cart table{
+    text-align: start;
+    font-size: 14px;
+}
+.cart table tr>td:nth-child(2){
+    text-align: end;
+}
+.cart .grand-total{
+    color: #F15C22;
+    font-size: 18px;
+    font-weight: 700;
+}
+.cart button{
+    background: #232F3E;
+    border: 1px solid #232F3E;
+    box-shadow: none;
+    color: #fff;
+    padding: 8px;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}

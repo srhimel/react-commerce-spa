@@ -1,0 +1,45 @@
+.shop .row{
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-gap: 20px;
+}
+@media only screen and (min-width: 981px){
+    .categories,
+    .products{
+        border-right: 1px solid lightgray;
+    }
+    .summery{
+        height: 100vh;
+        position: sticky;
+        top: 100px;
+    }
+    header{
+        position: sticky;
+        top: 0;
+    }
+    .categories{
+
+        height: 100vh;
+        position: sticky;
+        top: 100px;
+    }
+    .categories div{
+        margin-right: 20px;
+    }
+}
+
+@media only screen and (max-width: 980px){
+    .shop .row{
+        grid-template-columns: 1fr;
+    }
+
+    .summery{
+        order: 0;
+    }
+    .products{
+        order: 1;
+    }
+    .categories{
+        order: 2;
+    }
+  }
