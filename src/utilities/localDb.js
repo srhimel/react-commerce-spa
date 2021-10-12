@@ -20,4 +20,15 @@ const loadFromDb = () => {
     const exist = localStorage.getItem('cart');
     return exist ? JSON.parse(exist) : {};
 }
-export { addToLocal, loadFromDb }
+
+const deleteFromDb = key => {
+    const exist = loadFromDb();
+    delete exist[key];
+    localStorage.setItem('cart', JSON.stringify(exist));
+
+}
+
+const deleteDb = () => {
+    localStorage.removeItem('cart');
+}
+export { addToLocal, loadFromDb, deleteFromDb, deleteDb }

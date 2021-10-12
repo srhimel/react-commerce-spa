@@ -11,7 +11,7 @@
     .summery{
         height: 100vh;
         position: sticky;
-        top: 100px;
+        top: 60px;
     }
     header{
         position: sticky;
@@ -21,7 +21,7 @@
 
         height: 100vh;
         position: sticky;
-        top: 100px;
+        top: 60px;
     }
     .categories div{
         margin-right: 20px;

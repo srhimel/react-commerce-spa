@@ -3,11 +3,14 @@ import { addToLocal, loadFromDb } from '../../utilities/localDb';
 import Cart from '../Cart/Cart';
 import Category from '../Category/Category';
 import Product from '../Product/Product';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
-import Header from '../Header/Header';
 import './Shop.css';
+import { Link } from 'react-router-dom';
 
 const Shop = () => {
+    const searchIcon = <FontAwesomeIcon icon={faSearch} />
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([]);
     useEffect(() => {
@@ -39,7 +42,17 @@ const Shop = () => {
 
 
     const handleAddToCart = product => {
-        const newCart = [...cart, product]
+        const exist = cart.find(pw => pw.key === product.key);
+        let newCart = [];
+        if (exist) {
+            const remaining = cart.filter(pw => pw.key !== product.key);
+            exist.quantity = exist.quantity + 1;
+            newCart = [...remaining, product]
+        }
+        else {
+            product.quantity = 1;
+            newCart = [...cart, product]
+        }
         setCart(newCart);
         addToLocal(product.key);
     }
@@ -50,7 +63,6 @@ const Shop = () => {
     }
     return (
         <>
-            <Header handleSearch={handleSearch} cartitem={cart.length} />
             <div className="shop">
                 <div className="container">
                     <div className="row">
@@ -58,6 +70,12 @@ const Shop = () => {
                             <Category />
                         </div>
                         <div className="products">
+                            <div className="searchBox">
+                                <div className="input-group">
+                                    <input type="text" placeholder="Search for your desired item" onChange={handleSearch} />
+                                    <button>{searchIcon}</button>
+                                </div>
+                            </div>
                             <h3>Products Found: {searches.length} out of {products.length} Items</h3>
                             {
                                 searches.map(product => <Product
@@ -68,7 +86,11 @@ const Shop = () => {
                             }
                         </div>
                         <div className="summery">
-                            <Cart cart={cart} />
+                            <Cart cart={cart} >
+                                <Link to="/review">
+                                    <button className="btn-secondary">Review Your Order</button>
+                                </Link>
+                            </Cart>
                         </div>
                     </div>
                 </div>

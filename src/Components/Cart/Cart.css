@@ -13,13 +13,12 @@
     font-size: 18px;
     font-weight: 700;
 }
-.cart button{
+.btn-secondary{
     background: #232F3E;
     border: 1px solid #232F3E;
     box-shadow: none;
     color: #fff;
-    padding: 8px;
-    width: 100%;
+    padding: 8px 40px;
     border-radius: 5px;
     cursor: pointer;
     font-size: 14px;

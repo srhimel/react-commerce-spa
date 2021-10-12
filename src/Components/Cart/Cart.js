@@ -1,12 +1,17 @@
 import React from 'react';
 import './Cart.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
 const Cart = props => {
     const { cart } = props;
-    const arrowIcon = <FontAwesomeIcon icon={faAngleRight} />
-    const total = cart.reduce((pre, curr) => pre + curr.price, 0);
+    let total = 0;
+    let quantity = 0;
+    for (const product of cart) {
+        if (!product.quantity) {
+            product.quantity = 1;
+        }
+        total = total + product.price * product.quantity;
+        quantity = quantity + product.quantity;
+    }
     const shipping = props.cart.reduce((pre, curr) => pre + curr.shipping, 0);
     const totalWithoutTax = total + shipping;
     const tax = totalWithoutTax * .1;
@@ -14,7 +19,7 @@ const Cart = props => {
     return (
         <div className="cart">
             <h3>Order Summery</h3>
-            <p className="item-ordered">Items Ordered: {cart.length}</p>
+            <p className="item-ordered">Items Ordered: {quantity}</p>
             <hr />
             <table width="100%">
                 <tbody>
@@ -42,7 +47,7 @@ const Cart = props => {
 
             </table>
             <hr />
-            <button>Review Your Order &nbsp;{arrowIcon}</button>
+            {props.children}
         </div>
     );
 };

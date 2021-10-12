@@ -22,17 +22,19 @@ header{
 .header-top .cart{
     width: 5%;
 }
-.header-top .input-group{
+ .input-group{
     display: flex;
+    margin-right: 20px;
+    margin-top: 25px;
 }
-.header-top .input-group input{
+ .input-group input{
     padding: 10px;
-    width: 80%;
+    width: 100%;
     border-radius: 5px 0 0 5px;
     box-shadow: none;
-    border: none;
+    border: 1px solid #F15C22;
 }
-.header-top .input-group button{
+.input-group button{
     background:#F15C22;
     border: 2px solid #F15C22;
     box-shadow: none;
@@ -49,7 +51,7 @@ header{
     .header-top .logo img{
         width: 100px;
     }
-    .header-top .searchBox{
+     .searchBox{
         width: 60%;
     }
     
@@ -59,29 +61,29 @@ header{
     padding: 5px 50px;
 }
 
-.header-bottom nav ul {
+ nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
     gap: 20px;
 }
-.header-bottom nav ul li a {
+ nav ul li a {
     text-decoration: none;
     color: #fff;
     padding: 5px;
     display: inline-block;
     transition: .2s;
 }
-.header-bottom nav ul li a:hover{
+ nav ul li a:hover{
     color: #F15C22;
 }
 @media only screen and (max-width:980px) {
-    .header-bottom nav ul{
+     nav ul{
         gap: 10px;
         justify-content: center;
     }
-    .header-bottom nav ul li a{
+     nav ul li a{
         font-size: 13px;
         padding: 5px 3px;
     }
