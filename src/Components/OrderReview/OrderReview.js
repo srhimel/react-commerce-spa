@@ -4,7 +4,7 @@ import Category from '../Category/Category';
 import useProducts from '../../hooks/useProducts'
 import useCart from '../../hooks/useCart'
 import Ordered from '../Ordered/Ordered';
-import { deleteDb, deleteFromDb } from '../../utilities/localDb';
+import { deleteFromDb } from '../../utilities/localDb';
 import { Link, useHistory } from 'react-router-dom';
 
 const OrderReview = () => {
@@ -17,9 +17,9 @@ const OrderReview = () => {
         deleteFromDb(key);
     }
     const handlePlace = () => {
-        setCart([]);
-        deleteDb()
-        history.push("/thankyou")
+        // setCart([]);
+        // deleteDb()
+        history.push("/shipping")
     }
     return (
         <div>
