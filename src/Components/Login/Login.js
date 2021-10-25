@@ -23,7 +23,7 @@ const Login = () => {
     return (
         <div className="text-center">
             <h2>Login</h2>
-            <button onClick={handleLogin}>Login With Google</button>
+            <button onClick={handleLogin} className="addToCart">Login With Google</button>
         </div>
     );
 };

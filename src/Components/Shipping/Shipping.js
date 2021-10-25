@@ -9,15 +9,16 @@ const Shipping = () => {
     return (
         <div className="container">
             <div className="shipping">
-                <p>Shipping Information</p>
-                <form onSubmit={handleSubmit(onSubmit)}>
+                <h2 className="text-center">Shipping Information</h2>
+                <form onSubmit={handleSubmit(onSubmit)} >
+                    <label htmlFor="">Full Name</label>
                     <input defaultValue={user.displayName} {...register("name")} />
-                    <br />
+                    <label htmlFor="">Email Address</label>
                     <input defaultValue={user.email} {...register("email", { required: true })} />
                     {/* errors will return when field validation fails  */}
                     {errors.email && <span>This field is required</span>}
-                    <br />
-                    <input type="submit" />
+
+                    <input type="submit" className="addToCart" />
                 </form>
             </div>
         </div>
